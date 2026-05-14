@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annales Régional 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            text-decoration: none;
+            color: #b0bec5;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn-back:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        #liste-examens {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .region-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .region-card h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: #eceff1;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+        }
+
+        .subject-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px 0;
+            padding: 5px 0;
+        }
+
+        .subject-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #cfd8dc;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn-s { background: #007bff; color: white; } /* Bleu pour Sujet */
+        .btn-c { background: #28a745; color: white; } /* Vert pour Correction */
+
+        .btn-link:hover { opacity: 0.8; transform: scale(1.05); }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #78909c;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <a href="index.html" class="btn-back">← Retour au Compte à Rebours</a>
+        <h1>Régionaux 2025</h1>
+    </div>
+
+    <div id="liste-examens"></div>
+
+    <footer>SMB - 1BAC SM</footer>
+
+    <script>
+        const regions = [
+            "BENI MELLAL-KHENIFRA", "CASABLANCA-SETTAT", "DAKHLA-WADI-DAHAB", 
+            "DRAA-TAFILALT", "FES-MEKNES", "GUELMIM-WAD-NOUN", 
+            "Laâyoune-Sakia El Hamra", "MARRAKECH-SAFI", "ORIENTAL", 
+            "RABAT-SALÉ-KENITRA", "SOUSS-MASSA", "TANGER-TÉTOUAN-HOUSSIMA"
+        ];
+        
+        const matieres = [
+            { id: "arabe", label: "Arabe" },
+            { id: "francais", label: "Français" },
+            { id: "islamique", label: "Islamique" },
+            { id: "histoire-geo", label: "Hist-Géo" }
+        ];
+
+        const container = document.getElementById('liste-examens');
+
+        regions.forEach(r => {
+            let subjectsHtml = '';
+            matieres.forEach(m => {
+                subjectsHtml += `
+                    <div class="subject-row">
+                        <span class="subject-name">${m.label}</span>
+                        <div class="btn-group">
+                            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/${m.id}.pdf" class="btn-link btn-s" target="_blank">Sujet</a>
+                            <a href="2025 AVEC RÉGIONS/${r}/الإجابة/corr_${m.id}.pdf" class="btn-link btn-c" target="_blank">Corr.</a>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML += `
+                <div class="region-card">
+                    <h3>${r}</h3>
+                    ${subjectsHtml}
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
