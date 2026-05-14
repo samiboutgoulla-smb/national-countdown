@@ -21,128 +21,62 @@
             text-align: center;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        p.subtitle { font-size: 1.2rem; color: #b0bec5; margin-bottom: 50px; }
 
-        p.subtitle {
-            font-size: 1.2rem;
-            color: #b0bec5;
-            margin-bottom: 50px;
-        }
-
-        .countdown-container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
+        .countdown-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+        
         .time-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 20px;
-            min-width: 100px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px;
+            padding: 20px; min-width: 100px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
+        .time-box span { display: block; font-size: 4rem; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .time-box .label { font-size: 1rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; color: #eceff1; }
 
-        .time-box span {
-            display: block;
-            font-size: 4rem;
-            font-weight: 900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .btn-examens {
+            background: #007bff; color: white; text-decoration: none; padding: 15px 30px;
+            border-radius: 8px; font-size: 1.2rem; font-weight: bold; transition: background 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
+        .btn-examens:hover { background: #0056b3; }
 
-        .time-box .label {
-            font-size: 1rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-            color: #eceff1;
-        }
-
-        footer {
-            margin-top: 60px;
-            font-size: 0.9rem;
-            color: #78909c;
-        }
+        footer { margin-top: 60px; font-size: 0.9rem; color: #78909c; }
     </style>
 </head>
 <body>
 
     <h1>Examen Régional 1 BAC</h1>
-    <p class="subtitle">01 et 02 Juin 2026 - par SB pour khallouk </p>
+    <p class="subtitle">01 et 02 Juin 2026 - par SB pour khallouk</p>
 
     <div class="countdown-container">
-        <div class="time-box">
-            <span id="days">00</span>
-            <div class="label">Jours</div>
-        </div>
-        <div class="time-box">
-            <span id="hours">00</span>
-            <div class="label">Heures</div>
-        </div>
-        <div class="time-box">
-            <span id="minutes">00</span>
-            <div class="label">Minutes</div>
-        </div>
-        <div class="time-box">
-            <span id="seconds">00</span>
-            <div class="label">Secondes</div>
-        </div>
+        <div class="time-box"><span id="days">00</span><div class="label">Jours</div></div>
+        <div class="time-box"><span id="hours">00</span><div class="label">Heures</div></div>
+        <div class="time-box"><span id="minutes">00</span><div class="label">Minutes</div></div>
+        <div class="time-box"><span id="seconds">00</span><div class="label">Secondes</div></div>
     </div>
-<div id="liste-examens"></div>
-const regions = ["BENI MELLAL-KHENIFRA", "CASABLANCA-SETTAT", "DAKHLA-WADI-DAHAB", "DRAA-TAFILALT", "FES-MEKNES", "GUELMIM-WAD-NOUN", "Laâyoune-Sakia El Hamra", "MARRAKECH-SAFI", "ORIENTAL", "RABAT-SALÉ-KENITRA", "SOUSS-MASSA", "TANGER-TÉTOUAN-HOUSSIMA"];
-const div = document.getElementById('liste-examens');
 
-regions.forEach(r => {
-    div.innerHTML += `
-        <div style="border: 1px solid #ccc; margin: 10px; padding: 10px;">
-            <h3>${r}</h3>
-            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/arabe.pdf">Arabe</a> |
-            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/francais.pdf">Français</a> |
-            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/islamique.pdf">Islamique</a> |
-            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/histoire-geo.pdf">HG</a>
-        </div>
-    `;
-});
-    <footer>
-        SMB
-    </footer>
+    <!-- Le nouveau bouton pour aller vers la page des examens -->
+    <a href="regional.html" class="btn-examens">📚 Voir les examens régionaux 2025</a>
+
+    <footer>SMB</footer>
 
     <script>
-        // Date cible : 1er Juin 2026 à 08:00:00 (Fuseau horaire du Maroc : GMT+1)
         const targetDate = new Date("2026-06-01T08:00:00+01:00").getTime();
-
         const updateCountdown = () => {
             const now = new Date().getTime();
             const difference = targetDate - now;
-
             if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                document.getElementById("days").innerText = days.toString().padStart(2, '0');
-                document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-                document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-                document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+                document.getElementById("days").innerText = Math.floor(difference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((difference % (1000 * 60)) / 1000).toString().padStart(2, '0');
             } else {
                 document.querySelector('.countdown-container').innerHTML = "<h2>C'est le jour J ! Bon courage !</h2>";
             }
         };
-
-        // Met à jour le compteur chaque seconde
         setInterval(updateCountdown, 1000);
-        updateCountdown(); // Appel initial pour éviter le délai d'une seconde
+        updateCountdown();
     </script>
-
 </body>
 </html>
