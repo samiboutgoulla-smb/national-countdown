@@ -97,7 +97,21 @@
             <div class="label">Secondes</div>
         </div>
     </div>
+<div id="liste-examens"></div>
+const regions = ["BENI MELLAL-KHENIFRA", "CASABLANCA-SETTAT", "DAKHLA-WADI-DAHAB", "DRAA-TAFILALT", "FES-MEKNES", "GUELMIM-WAD-NOUN", "Laâyoune-Sakia El Hamra", "MARRAKECH-SAFI", "ORIENTAL", "RABAT-SALÉ-KENITRA", "SOUSS-MASSA", "TANGER-TÉTOUAN-HOUSSIMA"];
+const div = document.getElementById('liste-examens');
 
+regions.forEach(r => {
+    div.innerHTML += `
+        <div style="border: 1px solid #ccc; margin: 10px; padding: 10px;">
+            <h3>${r}</h3>
+            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/arabe.pdf">Arabe</a> |
+            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/francais.pdf">Français</a> |
+            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/islamique.pdf">Islamique</a> |
+            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/histoire-geo.pdf">HG</a>
+        </div>
+    `;
+});
     <footer>
         SMB
     </footer>
