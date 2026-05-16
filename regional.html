@@ -21,11 +21,13 @@
             margin-bottom: 50px;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+        h1 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+
+        .nav-top-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 25px;
         }
 
         .btn-back {
@@ -37,12 +39,18 @@
             border-radius: 30px;
             transition: all 0.3s;
             background: rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+            font-weight: bold;
         }
+        .btn-back:hover { background: rgba(255,255,255,0.15); color: white; }
 
-        .btn-back:hover {
-            background: rgba(255,255,255,0.15);
-            color: white;
+        /* Style spécifique pour le bouton 3AC en haut */
+        .btn-to-3ac {
+            border-color: rgba(111, 66, 193, 0.4);
+            background: rgba(111, 66, 193, 0.1);
+            color: #d6bcfa;
         }
+        .btn-to-3ac:hover { background: rgba(111, 66, 193, 0.3); color: white; }
 
         #liste-examens {
             display: grid;
@@ -53,72 +61,41 @@
         }
 
         .region-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px;
+            padding: 25px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
         .region-card h3 {
-            margin-top: 0;
-            font-size: 1.1rem;
-            color: #eceff1;
+            margin-top: 0; font-size: 1.1rem; color: #eceff1;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 15px;
-            height: 45px;
-            display: flex;
-            align-items: center;
+            padding-bottom: 15px; height: 45px; display: flex; align-items: center;
         }
 
-        .subject-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 12px 0;
-            padding: 5px 0;
-        }
+        .subject-row { display: flex; justify-content: space-between; align-items: center; margin: 12px 0; padding: 5px 0; }
+        .subject-name { font-weight: 700; font-size: 0.9rem; color: #cfd8dc; }
 
-        .subject-name {
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: #cfd8dc;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 8px;
-        }
+        .btn-group { display: flex; gap: 8px; }
 
         .btn-link {
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: bold;
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: 0.2s;
-            text-transform: uppercase;
+            text-decoration: none; font-size: 0.75rem; font-weight: bold;
+            padding: 6px 12px; border-radius: 6px; transition: 0.2s; text-transform: uppercase;
         }
-
-        .btn-s { background: #007bff; color: white; } /* Bleu pour Sujet */
-        .btn-c { background: #28a745; color: white; } /* Vert pour Correction */
-
+        .btn-s { background: #007bff; color: white; }
+        .btn-c { background: #28a745; color: white; }
         .btn-link:hover { opacity: 0.8; transform: scale(1.05); }
 
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #78909c;
-            font-size: 0.8rem;
-        }
+        footer { text-align: center; margin-top: 50px; color: #78909c; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <div class="header-section">
-        <a href="index.html" class="btn-back">← Retour au Compte à Rebours</a>
-        <h1>Régionaux 2025 (publié par SAMI BOUTGOULLA & YB)</h1>
+        <div class="nav-top-group">
+            <a href="index.html" class="btn-back">← Accueil 1BAC</a>
+            <a href="3ac.html" class="btn-back btn-to-3ac">🎓 Compte à Rebours 3AC</a>
+        </div>
+        <h1>Régionaux 2025</h1>
     </div>
 
     <div id="liste-examens"></div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compte à rebours - Régional 2026</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;700;900&display=swap');
 
         body {
             margin: 0;
@@ -34,12 +34,26 @@
         .time-box span { display: block; font-size: 4rem; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .time-box .label { font-size: 1rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; color: #eceff1; }
 
+        /* Conteneur pour aligner les boutons de navigation */
+        .navigation-box {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .btn-examens {
-            background: #007bff; color: white; text-decoration: none; padding: 15px 30px;
-            border-radius: 8px; font-size: 1.2rem; font-weight: bold; transition: background 0.3s;
+            color: white; text-decoration: none; padding: 15px 30px;
+            border-radius: 8px; font-size: 1.2rem; font-weight: bold; transition: background 0.3s, transform 0.2s;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
-        .btn-examens:hover { background: #0056b3; }
+        .btn-examens:hover { transform: scale(1.03); }
+
+        .btn-1bac { background: #007bff; }
+        .btn-1bac:hover { background: #0056b3; }
+
+        .btn-3ac { background: #6f42c1; }
+        .btn-3ac:hover { background: #5a32a3; }
 
         footer { margin-top: 60px; font-size: 0.9rem; color: #78909c; }
     </style>
@@ -47,7 +61,7 @@
 <body>
 
     <h1>Examen Régional 1 BAC</h1>
-    <p class="subtitle">Régional 2026 le 1 et 2 JUIN - par SB pour khallouk</p>
+    <p class="subtitle">Fin des révisions : 31 Mai 2026 - par SB pour khallouk</p>
 
     <div class="countdown-container">
         <div class="time-box"><span id="days">00</span><div class="label">Jours</div></div>
@@ -56,12 +70,14 @@
         <div class="time-box"><span id="seconds">00</span><div class="label">Secondes</div></div>
     </div>
 
-    <a href="regional.html" class="btn-examens">📚 Voir les examens régionaux 2025 PDF </a>
+    <div class="navigation-box">
+        <a href="regional.html" class="btn-examens btn-1bac">📚 Voir les examens régionaux 2025 PDF</a>
+        <a href="3ac.html" class="btn-examens btn-3ac">🎓 Compte à rebours 3AC</a>
+    </div>
 
     <footer>SMB</footer>
 
     <script>
-        // Changement de la date cible pour s'arrêter 1 jour avant l'examen (Le 31 Mai à 08:00)
         const targetDate = new Date("2026-05-31T08:00:00+01:00").getTime();
 
         const updateCountdown = () => {
