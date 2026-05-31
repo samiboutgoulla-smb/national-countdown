@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://samiboutgoulla-smb.github.io/regional-countdown/sitemap.xml
