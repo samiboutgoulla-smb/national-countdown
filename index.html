@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Compte à rebours pour les examens régionaux 2025 et 3AC. Suivez le temps restant pour vos épreuves.">
-    <title>Compte à rebours - Régional 2026</title>
+    <meta name="description" content="Compte à rebours pour l'examen national de la filière 2BAC Sciences Mathématiques (SM) 2026.">
+    <title>Compte à rebours - National 2026 (2BAC SM)</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;700;900&display=swap');
 
@@ -23,118 +23,142 @@
             text-align: center;
         }
 
-        h1 { font-size: 2.8rem; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; }
-        h2 { font-size: 2rem; margin-top: 0; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px; color: #a7ffeb; }
-        p.subtitle { font-size: 1.1rem; color: #b0bec5; margin-bottom: 35px; margin-top: 5px; }
+        h2 { font-size: 1.8rem; color: #a7ffeb; text-transform: uppercase; letter-spacing: 2px; margin-top: 0; margin-bottom: 5px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        p.subtitle { font-size: 1.2rem; color: #b0bec5; margin-bottom: 40px; }
 
-        .countdown-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 35px; }
+        .countdown-container { 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin-bottom: 40px; 
+        }
         
         .time-box {
-            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px;
-            padding: 20px; min-width: 100px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            border-radius: 15px;
+            padding: 20px; 
+            min-width: 110px; 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
-        .time-box span { display: block; font-size: 3.5rem; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .time-box .label { font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; color: #eceff1; }
-
-        /* Séparateur élégant entre les deux comptes à rebours */
-        .separator {
-            width: 80px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.15);
-            margin: 10px 0 40px 0;
-            border-radius: 2px;
+        
+        .time-box span { 
+            display: block; 
+            font-size: 4rem; 
+            font-weight: 900; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+        }
+        
+        .time-box .label { 
+            font-size: 0.9rem; 
+            font-weight: 400; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            margin-top: 5px; 
+            color: #eceff1; 
         }
 
         .navigation-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-main {
+            display: block;
+            background: #dc3545; 
+            color: white; 
+            text-decoration: none; 
+            padding: 16px;
+            border-radius: 8px; 
+            font-size: 1.3rem; 
+            font-weight: bold; 
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .btn-main:hover { background: #c82333; transform: scale(1.02); }
+
+        .secondary-links {
             display: flex;
             gap: 15px;
-            flex-wrap: wrap;
             justify-content: center;
-            margin-top: 15px;
+            flex-wrap: wrap;
         }
 
-        .btn-examens {
-            color: white; text-decoration: none; padding: 15px 30px;
-            border-radius: 8px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        .btn-secondary {
+            flex: 1;
+            min-width: 140px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #e0f2f1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 20px; 
+            border-radius: 8px; 
+            font-size: 1rem; 
+            font-weight: bold; 
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
         }
-        .btn-examens:hover { transform: scale(1.03); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.22); transform: scale(1.02); }
 
-        .btn-1bac { background: #007bff; }
-        .btn-1bac:hover { background: #0056b3; }
-
-        .btn-3ac { background: #6f42c1; }
-        .btn-3ac:hover { background: #5a32a3; }
-
-        footer { margin-top: 50px; font-size: 0.9rem; color: #78909c; }
+        footer { margin-top: 60px; font-size: 0.9rem; color: #78909c; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
-    <h1>Examen Régional 1 BAC</h1>
-    <p class="subtitle">Fin des révisions : 31 Mai 2026 - par SB pour khallouk</p>
+    <h2>Objectif Terminale</h2>
+    <h1>Examen National 2 BAC SM</h1>
+    <p class="subtitle">Début estimé des épreuves : 9 Juin 2027</p>
 
-    <div class="countdown-container" id="exam-container">
+    <div class="countdown-container" id="national-container">
         <div class="time-box"><span id="days">00</span><div class="label">Jours</div></div>
         <div class="time-box"><span id="hours">00</span><div class="label">Heures</div></div>
         <div class="time-box"><span id="minutes">00</span><div class="label">Minutes</div></div>
         <div class="time-box"><span id="seconds">00</span><div class="label">Secondes</div></div>
     </div>
 
-    <div class="separator"></div>
-
-    <h2>Résultats & Bulletins</h2>
-    <p class="subtitle">Publication officielle des notes : 9 Juillet 2026</p>
-
-    <div class="countdown-container" id="results-container">
-        <div class="time-box"><span id="res-days">00</span><div class="label">Jours</div></div>
-        <div class="time-box"><span id="res-hours">00</span><div class="label">Heures</div></div>
-        <div class="time-box"><span id="res-minutes">00</span><div class="label">Minutes</div></div>
-        <div class="time-box"><span id="res-seconds">00</span><div class="label">Secondes</div></div>
-    </div>
-
     <div class="navigation-box">
-        <a href="regional.html" class="btn-examens btn-1bac">📚 Voir les examens régionaux 2025 PDF</a>
-        <a href="3ac.html" class="btn-examens btn-3ac">🎓 Compte à rebours 3AC</a>
+        <a href="national.html" class="btn-main">📚 Sujets & Corrections (1999 - 2024)</a>
+        
+        <div class="secondary-links">
+            <a href="regional.html" class="btn-secondary">📝 Espace 1BAC</a>
+            <a href="3ac.html" class="btn-secondary">🎓 Espace 3AC</a>
+        </div>
     </div>
 
-    <footer>SMB</footer>
+    <footer>SAMI BOUTGOULLA - SMB</footer>
 
     <script>
-        // Dates cibles
-        const examTargetDate = new Date("2026-05-31T23:59:59+01:00").getTime();
-        const resultsTargetDate = new Date("2026-07-09T00:10:00+01:00").getTime();
+        // Date cible estimée pour l'examen National 2027
+        const targetDate = new Date("2027-06-09T08:00:00+01:00").getTime();
 
-        const updateCountdowns = () => {
+        const updateCountdown = () => {
             const now = new Date().getTime();
+            const difference = targetDate - now;
 
-            // 1. Gestion du compte à rebours de l'examen
-            const examDifference = examTargetDate - now;
-            if (examDifference > 0) {
-                document.getElementById("days").innerText = Math.floor(examDifference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-                document.getElementById("hours").innerText = Math.floor((examDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById("minutes").innerText = Math.floor((examDifference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById("seconds").innerText = Math.floor((examDifference % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            if (difference > 0) {
+                document.getElementById("days").innerText = Math.floor(difference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((difference % (1000 * 60)) / 1000).toString().padStart(2, '0');
             } else {
-                document.getElementById("exam-container").innerHTML = "<h2>Place au repos ! Les épreuves sont en cours ou terminées. 🌟</h2>";
-            }
-
-            // 2. Gestion du compte à rebours des résultats
-            const resultsDifference = resultsTargetDate - now;
-            if (resultsDifference > 0) {
-                document.getElementById("res-days").innerText = Math.floor(resultsDifference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-                document.getElementById("res-hours").innerText = Math.floor((resultsDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById("res-minutes").innerText = Math.floor((resultsDifference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById("res-seconds").innerText = Math.floor((resultsDifference % (1000 * 60)) / 1000).toString().padStart(2, '0');
-            } else {
-                document.getElementById("results-container").innerHTML = "<h2>🚀 Les résultats et bulletins sont disponibles !</h2>";
+                document.getElementById("national-container").innerHTML = "<h2>Place aux épreuves ! Bon courage pour le National 2BAC SM ! 🌟</h2>";
             }
         };
 
-        // Mise à jour toutes les secondes
-        setInterval(updateCountdowns, 1000);
-        updateCountdowns(); // Premier lancement immédiat
+        // Rafraîchissement toutes les secondes
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
 </body>
 </html>

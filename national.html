@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Régional 1 BAC 2025 PDF</title>
+    <title>National 2 BAC SM - Examens PDF</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;700;900&display=swap');
 
         body {
             margin: 0;
@@ -28,6 +28,7 @@
             gap: 12px;
             justify-content: center;
             margin-bottom: 25px;
+            flex-wrap: wrap;
         }
 
         .btn-back {
@@ -42,15 +43,14 @@
             font-size: 0.9rem;
             font-weight: bold;
         }
-        .btn-back:hover { background: rgba(255,255,255,0.15); color: white; }
+        .btn-back:hover { background: rgba(255,255,255,0.15); color: white; transform: translateY(-2px); }
 
-        /* Style spécifique pour le bouton 3AC en haut */
-        .btn-to-3ac {
-            border-color: rgba(111, 66, 193, 0.4);
-            background: rgba(111, 66, 193, 0.1);
-            color: #d6bcfa;
+        .btn-to-countdown {
+            border-color: rgba(220, 53, 69, 0.4);
+            background: rgba(220, 53, 69, 0.1);
+            color: #ffb3b9;
         }
-        .btn-to-3ac:hover { background: rgba(111, 66, 193, 0.3); color: white; }
+        .btn-to-countdown:hover { background: rgba(220, 53, 69, 0.3); color: white; }
 
         #liste-examens {
             display: grid;
@@ -60,16 +60,16 @@
             margin: 0 auto;
         }
 
-        .region-card {
+        .year-card {
             background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px;
             padding: 25px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
-        .region-card h3 {
-            margin-top: 0; font-size: 1.1rem; color: #eceff1;
+        .year-card h3 {
+            margin-top: 0; font-size: 1.3rem; color: #a7ffeb;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 15px; height: 45px; display: flex; align-items: center;
+            padding-bottom: 15px; display: flex; align-items: center;
         }
 
         .subject-row { display: flex; justify-content: space-between; align-items: center; margin: 12px 0; padding: 5px 0; }
@@ -93,10 +93,9 @@
     <div class="header-section">
         <div class="nav-top-group">
             <a href="index.html" class="btn-back">← Accueil 1BAC</a>
-            <a href="3ac.html" class="btn-back btn-to-3ac">🎓 Compte à Rebours 3AC</a>
-            <a href="2bac.html" class="btn-examens" style="background: #dc3545;">🎯 Objectif 2BAC SM</a>
+            <a href="2bac.html" class="btn-back btn-to-countdown">⏳ Compte à Rebours 2BAC</a>
         </div>
-        <h1>Régionaux 2025 par SAMI BOUTGOULLA</h1>
+        <h1>Nationaux 2BAC SM par SAMI BOUTGOULLA</h1>
     </div>
 
     <div id="liste-examens"></div>
@@ -104,39 +103,39 @@
     <footer>SMB - 1BAC SM</footer>
 
     <script>
-        const regions = [
-            "BENI MELLAL-KHENIFRA", "CASABLANCA-SETTAT", "DAKHLA-WADI-DAHAB", 
-            "DRAA-TAFILALT", "FES-MEKNES", "GUELMIM-WAD-NOUN", 
-            "Laâyoune-Sakia El Hamra", "MARRAKECH-SAFI", "ORIENTAL", 
-            "RABAT-SALÉ-KENITRA", "SOUSS-MASSA", "TANGER-TÉTOUAN-HOUSSIMA"
-        ];
+        // Génération automatique des années de 2026 à 1999
+        const annees = [];
+        for (let annee = 2026; annee >= 1999; annee--) {
+            annees.push(annee.toString());
+        }
         
+        // Matières principales de la filière SM
         const matieres = [
-            { id: "arabe", label: "Arabe" },
-            { id: "francais", label: "Français" },
-            { id: "islamique", label: "Islamique" },
-            { id: "histoire-geo", label: "Hist-Géo" }
+            { id: "maths", label: "Mathématiques" },
+            { id: "physique", label: "Physique-Chimie" },
+            { id: "philo", label: "Philosophie" },
+            { id: "anglais", label: "Anglais" }
         ];
 
         const container = document.getElementById('liste-examens');
 
-        regions.forEach(r => {
+        annees.forEach(annee => {
             let subjectsHtml = '';
             matieres.forEach(m => {
                 subjectsHtml += `
                     <div class="subject-row">
                         <span class="subject-name">${m.label}</span>
                         <div class="btn-group">
-                            <a href="2025 AVEC RÉGIONS/${r}/المواضيع/${m.id}.pdf" class="btn-link btn-s" target="_blank">Sujet</a>
-                            <a href="2025 AVEC RÉGIONS/${r}/عناصر الإجابة/corr_${m.id}.pdf" class="btn-link btn-c" target="_blank">Corr.</a>
+                            <a href="NATIONAUX/${annee}/المواضيع/${m.id}.pdf" class="btn-link btn-s" target="_blank">Sujet</a>
+                            <a href="NATIONAUX/${annee}/عناصر الإجابة/corr_${m.id}.pdf" class="btn-link btn-c" target="_blank">Corr.</a>
                         </div>
                     </div>
                 `;
             });
 
             container.innerHTML += `
-                <div class="region-card">
-                    <h3>${r}</h3>
+                <div class="year-card">
+                    <h3>Session Normale ${annee}</h3>
                     ${subjectsHtml}
                 </div>
             `;

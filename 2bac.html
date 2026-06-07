@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compte à rebours - Régional 2026 (3AC)</title>
+    <title>Compte à rebours - National 2026 (2BAC SM)</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
@@ -22,6 +22,7 @@
         }
 
         h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 2rem; color: #a7ffeb; text-transform: uppercase; letter-spacing: 2px; margin-top: 0; }
         p.subtitle { font-size: 1.2rem; color: #b0bec5; margin-bottom: 50px; }
 
         .countdown-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
@@ -42,26 +43,29 @@
         }
 
         .btn-examens {
-            background: #28a745; color: white; text-decoration: none; padding: 15px 30px;
+            background: #dc3545; color: white; text-decoration: none; padding: 15px 30px;
             border-radius: 8px; font-size: 1.2rem; font-weight: bold; transition: background 0.3s, transform 0.2s;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
-        .btn-examens:hover { background: #1e7e34; transform: scale(1.02); }
+        .btn-examens:hover { background: #c82333; transform: scale(1.02); }
         
         .btn-secondary {
             background: rgba(255, 255, 255, 0.15);
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 15px 30px; border-radius: 8px; font-size: 1.2rem; font-weight: bold; text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
         }
-        .btn-secondary:hover { background: rgba(255, 255, 255, 0.25); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.25); transform: scale(1.02); }
 
         footer { margin-top: 60px; font-size: 0.9rem; color: #78909c; }
     </style>
 </head>
 <body>
 
-    <h1>Examen Régional 3 AC</h1>
-    <p class="subtitle">Début des épreuves le 24 Juin 2026</p>
+    <h2>Objectif Terminale</h2>
+    <h1>Examen National 2 BAC SM</h1>
+    <p class="subtitle">Début estimé des épreuves : 9 Juin 2026</p>
 
     <div class="countdown-container">
         <div class="time-box"><span id="days">00</span><div class="label">Jours</div></div>
@@ -71,15 +75,15 @@
     </div>
 
     <div class="btn-group-nav">
-        <a href="index.html" class="btn-examens btn-secondary">🏠 Accueil 2BAC SM</a>
-        <a href="regional.html" class="btn-examens">📚 Voir les examens régionaux 2025</a>
-        <a href="2bac.html" class="btn-examens" style="background: #dc3545;">🎯 Objectif 2BAC SM</a>
+        <a href="index.html" class="btn-secondary">🏠 Retour 1BAC</a>
+        <a href="national.html" class="btn-examens">📚 Voir les examens nationaux</a>
     </div>
 
-    <footer>SMB</footer>
+    <footer>SMB - 1BAC SM vers 2BAC SM</footer>
 
     <script>
-        const targetDate = new Date("2026-06-24T08:00:00+01:00").getTime();
+        // Date provisoire pour le National 2026
+        const targetDate = new Date("2026-06-09T08:00:00+01:00").getTime();
         const updateCountdown = () => {
             const now = new Date().getTime();
             const difference = targetDate - now;
@@ -89,7 +93,7 @@
                 document.getElementById("minutes").innerText = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
                 document.getElementById("seconds").innerText = Math.floor((difference % (1000 * 60)) / 1000).toString().padStart(2, '0');
             } else {
-                document.querySelector('.countdown-container').innerHTML = "<h2>L'examen a commencé ! Bon courage !</h2>";
+                document.querySelector('.countdown-container').innerHTML = "<h2>C'est le jour J ! Bon courage pour le National !</h2>";
             }
         };
         setInterval(updateCountdown, 1000);
