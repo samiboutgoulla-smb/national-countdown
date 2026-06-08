@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://samiboutgoulla-smb.github.io/regional-countdown/</loc>
-    </url>
-    <url>
-        <loc>https://samiboutgoulla-smb.github.io/regional-countdown/3ac.html</loc>
-    </url>
-    <url>
-        <loc>https://samiboutgoulla-smb.github.io/regional-countdown/regional.html</loc>
-    </url>
+  <url>
+    <loc>https://samiboutgoulla-smb.github.io/national-countdown/</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://samiboutgoulla-smb.github.io/national-countdown/national.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://samiboutgoulla-smb.github.io/national-countdown/regional.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://samiboutgoulla-smb.github.io/national-countdown/3ac.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

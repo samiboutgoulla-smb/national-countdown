@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Des Examens Nationaux 2BAC SM de 1999 à 2026, avec les sujets et les corrigés disponibles en PDF.">
+    <link rel="canonical" href="https://samiboutgoulla-smb.github.io/national-countdown/national.html" />
     <title>National 2 BAC SM - Examens PDF</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;700;900&display=swap');
@@ -110,9 +112,11 @@
         }
         
         // Matières principales de la filière SM
+       // Matières principales de la filière SM
         const matieres = [
             { id: "maths", label: "Mathématiques" },
             { id: "physique", label: "Physique-Chimie" },
+            { id: "svt", label: "SVT" }, // <-- Ligne ajoutée ici
             { id: "philo", label: "Philosophie" },
             { id: "anglais", label: "Anglais" }
         ];
@@ -126,8 +130,8 @@
                     <div class="subject-row">
                         <span class="subject-name">${m.label}</span>
                         <div class="btn-group">
-                            <a href="NATIONAUX/${annee}/المواضيع/${m.id}.pdf" class="btn-link btn-s" target="_blank">Sujet</a>
-                            <a href="NATIONAUX/${annee}/عناصر الإجابة/corr_${m.id}.pdf" class="btn-link btn-c" target="_blank">Corr.</a>
+                            <a href="NATIONAUX/${annee}/sujet/${m.id}.pdf" class="btn-link btn-s" target="_blank">Sujet</a>
+                            <a href="NATIONAUX/${annee}/correction/corr_${m.id}.pdf" class="btn-link btn-c" target="_blank">Corr.</a>
                         </div>
                     </div>
                 `;
